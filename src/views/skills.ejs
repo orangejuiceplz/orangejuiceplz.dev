@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %> | orangejuiceplz</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/starry-background.js"></script>
+</head>
+<body>
+    <%- include('../partials/header') %>
+    <main>
+        <section class="skills">
+            <h1 class="float">my skills</h1>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h2>programming langs</h2>
+                    <ul>
+                        <li class="pulse">C++</li>
+                        <li class="pulse">python</li>
+                        <li class="pulse">java</li>
+                        <li class="pulse">html5</li>
+                        <li class="pulse">css</li>
+                        <li class="pulse">js</li>
+                        <li class="pulse">shell</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h2>web tech</h2>
+                    <ul>
+                        <li class="pulse">html5</li>
+                        <li class="pulse">CSS3</li>
+                        <li class="pulse">react</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h2>tools && frameworks</h2>
+                    <ul>
+                        <li class="pulse">node.js</li>
+                        <li class="pulse">express.js</li>
+                        <li class="pulse">git</li>
+                        <li class="pulse">docker</li>
+                        <li class="pulse">makefile/cmake</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+    <%- include('../partials/footer') %>
+    <script src="/js/main.js"></script>
+</body>
+</html>

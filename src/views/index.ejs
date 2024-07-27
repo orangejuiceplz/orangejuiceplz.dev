@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %> | Your Name</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/starry-background.js"></script>
+</head>
+<body>
+    <%- include('../partials/header') %>
+    <main>
+        <section class="hero">
+            <h1>welcome to the updated digi-crib</h1>
+            <p>wsp, i'm orangejuiceplz. i'm a FOSS developer thats passionate about offensive cybersecurity</p>
+            <a href="/about" class="cta-button">learn more</a>
+        </section>
+        <section class="featured-work">
+            <h2>featured work</h2>
+            <div class="work-grid">
+                <div class="work-item">
+                    <img src="/images/project1.jpg" alt="System-Monitor">
+                    <h3>System-Monitor</h3>
+                    <p> An improper console based tool to track system details in C++. Literally worse btop in every way </p>
+                    <a href="#" class="project-link">view project on github</a>
+                </div>
+                <!-- more projects -->
+            </div>
+        </section>
+        <section class="latest-blog-posts">
+            <h2>latest from the blog</h2>
+            <!-- blog previewing (need to add) -->
+            <article class="blog-preview">
+                <h3>mastering c++ - a journey</h3>
+                <p>explore the hell i've gotten myself into</p>
+                <a href="/blog" class="read-more">read more</a>
+            </article>
+            <!-- add more.. -->
+        </section>
+        <section class="call-to-action">
+            <h2>collaborations?</h2>
+            <p>i'm always open to new collabs</p>
+            <a href="/contact" class="cta-button">get in touch</a>
+        </section>
+    </main>
+    <%- include('../partials/footer') %>
+    <script src="/js/main.js"></script>
+</body>
+</html>

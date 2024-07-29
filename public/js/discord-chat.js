@@ -1,4 +1,4 @@
-const API_BASE_URL = 'temp';
+const API_BASE_URL = 'http://localhost:3000'; // note: update to actual url when get one
 
 document.addEventListener('DOMContentLoaded', () => {
     const chatMessages = document.getElementById('chat-messages');
@@ -21,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         const message = chatInput.value.trim();
         if (message) {
-            console.log('Attempting to send message:', message);
             try {
                 const response = await fetch(`${API_BASE_URL}/api/send-message`, {
                     method: 'POST',
@@ -32,7 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 const data = await response.json();
                 if (response.ok) {
-                    console.log('Message sent successfully:', data);
                     addMessage('You', message, new Date());
                     chatInput.value = '';
                 } else {
@@ -63,6 +61,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     fetchMessages();
-
-    setInterval(fetchMessages, 1000);
+    setInterval(fetchMessages, 5000); 
 });

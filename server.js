@@ -35,6 +35,10 @@ app.get('/contact', (req, res) => {
   res.render('contact', { title: 'Contact' });
 });
 
+app.get('/discord', (req, res) => {
+    res.render('discord', { title: 'Discord' });
+  });
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);

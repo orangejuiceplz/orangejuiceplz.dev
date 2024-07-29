@@ -19,6 +19,22 @@ body {
   padding: 0;
 }
 
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, var(--bg-color) 25%, transparent 25%, transparent 75%, var(--bg-color) 75%, var(--bg-color)),
+              linear-gradient(45deg, var(--bg-color) 25%, transparent 25%, transparent 75%, var(--bg-color) 75%, var(--bg-color));
+  background-size: 60px 60px;
+  background-position: 0 0, 30px 30px;
+  animation: backgroundScroll 20s linear infinite;
+  z-index: -1;
+  opacity: 0.05;
+}
+
 header {
   background-color: rgba(36, 40, 59, 0.8);
   backdrop-filter: blur(10px);
@@ -73,6 +89,17 @@ nav ul {
   transition: transform 0.3s ease;
 }
 
+.nav-button::after, .cta-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--neon-blue), transparent);
+  animation: scanline 2s linear infinite;
+}
+
 .nav-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -112,6 +139,7 @@ h1, h2, h3 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
   text-shadow: 0 0 10px var(--neon-purple);
+  animation: neonFlicker 1.5s infinite alternate;
 }
 
 .cta-button {
@@ -124,6 +152,8 @@ h1, h2, h3 {
   transition: all 0.3s ease;
   border: 1px solid var(--neon-purple);
   box-shadow: 0 0 5px var(--neon-purple);
+  position: relative;
+  overflow: hidden;
 }
 
 .cta-button:hover {
@@ -137,7 +167,6 @@ h1, h2, h3 {
   padding: 2rem;
   border-radius: 8px;
   margin-bottom: 3rem;
-  animation: fadeIn 1s ease-out;
 }
 
 .work-grid {
@@ -151,6 +180,7 @@ h1, h2, h3 {
   padding: 1rem;
   border-radius: 8px;
   transition: transform 0.3s ease;
+  animation: glitch 5s infinite;
 }
 
 .work-item:hover, .blog-preview:hover {
@@ -181,47 +211,56 @@ footer {
 }
 
 /* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+@keyframes neonFlicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    text-shadow: 
+      0 0 5px var(--neon-blue),
+      0 0 10px var(--neon-blue),
+      0 0 15px var(--neon-blue),
+      0 0 20px var(--neon-blue);
+  }
+  20%, 24%, 55% {
+    text-shadow: none;
+  }
 }
 
-@keyframes slideInFromLeft {
-  from { transform: translateX(-50px); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-5px, 5px);
+  }
+  40% {
+    transform: translate(-5px, -5px);
+  }
+  60% {
+    transform: translate(5px, 5px);
+  }
+  80% {
+    transform: translate(5px, -5px);
+  }
+  100% {
+    transform: translate(0);
+  }
 }
 
-@keyframes slideInFromRight {
-  from { transform: translateX(50px); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
 }
 
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
-}
-
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
-}
-
-.float {
-  animation: float 4s ease-in-out infinite;
-}
-
-.pulse {
-  animation: pulse 2s ease-in-out infinite;
-}
-
-.work-item:nth-child(odd) {
-  animation: slideInFromLeft 1s ease-out;
-}
-
-.work-item:nth-child(even) {
-  animation: slideInFromRight 1s ease-out;
+@keyframes backgroundScroll {
+  0% {
+    background-position: 0 0, 30px 30px;
+  }
+  100% {
+    background-position: 60px 60px, 90px 90px;
+  }
 }
 
 /* Skills page styles */
@@ -314,7 +353,6 @@ footer {
   padding: 2rem;
   margin-top: 2rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  animation: fadeIn 1s ease-out;
 }
 
 .discord-chat h1 {
@@ -340,7 +378,6 @@ footer {
   border-radius: 8px;
   padding: 0.75rem;
   margin-bottom: 0.75rem;
-  animation: slideInFromRight 0.3s ease-out;
 }
 
 .message-author {
@@ -440,5 +477,261 @@ footer {
   #chat-input,
   #chat-form button {
     width: 100%;
+  }
+}
+
+/* About Me Section */
+.about-me {
+  background-color: var(--secondary-bg);
+  border: 2px solid var(--neon-blue);
+  border-radius: 8px;
+  padding: 2rem;
+  margin-bottom: 3rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(102, 217, 239, 0.3);
+}
+
+.about-me::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--neon-blue), var(--neon-purple));
+  animation: scanline 2s linear infinite;
+}
+
+.about-me h1 {
+  color: var(--neon-purple);
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  text-transform: lowercase;
+  letter-spacing: 3px;
+  text-shadow: 0 0 10px var(--neon-purple);
+}
+
+.profile-container {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.profile-picture {
+  width: 200px;
+  height: 200px; /* Added to maintain aspect ratio if image doesn't load */
+  border-radius: 50%;
+  border: 2px solid var(--neon-blue);
+  box-shadow: 0 0 15px var(--neon-blue);
+  position: relative;
+  object-fit: cover; /* This ensures the image covers the area without stretching */
+  background-color: #333; /* This will show if the image doesn't load */
+}
+
+.profile-picture::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border: 2px solid var(--neon-purple);
+  border-radius: 50%;
+  animation: pulseOutline 2s infinite;
+}
+
+.about-content {
+  flex: 1;
+}
+
+.about-content p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* My Journey Section */
+.my-journey {
+  background-color: var(--secondary-bg);
+  border: 2px solid var(--neon-blue);
+  border-radius: 8px;
+  padding: 2rem;
+  margin-bottom: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.my-journey h2 {
+  color: var(--neon-blue);
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-transform: lowercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 8px var(--neon-blue);
+}
+
+.timeline {
+  list-style-type: none;
+  padding: 0;
+  position: relative;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 2px;
+  background: var(--neon-purple);
+  animation: pulseTimeline 2s infinite;
+}
+
+.timeline-item {
+  margin-bottom: 2rem;
+  padding-left: 2rem;
+  position: relative;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -6px;
+  top: 0;
+  width: 14px;
+  height: 14px;
+  background: var(--neon-blue);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--neon-blue);
+}
+
+.timeline-item h3 {
+  color: var(--neon-purple);
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Personal Interests Section */
+.personal-interests {
+  background-color: var(--secondary-bg);
+  border: 2px solid var(--neon-blue);
+  border-radius: 8px;
+  padding: 2rem;
+  margin-bottom: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.personal-interests h2 {
+  color: var(--neon-blue);
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-transform: lowercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 8px var(--neon-blue);
+}
+
+.interests-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  list-style-type: none;
+  padding: 0;
+}
+
+.interest-item {
+  background-color: var(--bg-color);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--neon-purple);
+  transition: all 0.3s ease;
+}
+
+.interest-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(189, 147, 249, 0.3);
+}
+
+.interest-item h3 {
+  color: var(--neon-purple);
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 5px var(--neon-purple);
+}
+
+/* Animations */
+@keyframes scanline {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes pulseOutline {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+@keyframes pulseTimeline {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Existing animations */
+.pulse {
+  animation: neonPulse 2s infinite;
+}
+
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes neonPulse {
+  0%, 100% {
+    text-shadow: 0 0 10px var(--neon-purple), 0 0 20px var(--neon-purple), 0 0 30px var(--neon-purple);
+  }
+  50% {
+    text-shadow: 0 0 20px var(--neon-purple), 0 0 30px var(--neon-purple), 0 0 40px var(--neon-purple);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .profile-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-picture {
+    margin-bottom: 1rem;
+  }
+
+  .interests-grid {
+    grid-template-columns: 1fr;
   }
 }

@@ -9,40 +9,52 @@
 </head>
 <body>
     <%- include('../partials/header') %>
-
     <main>
-        <section class="about-me">
-            <h1>about me</h1>
-            <img src="/images/profile-picture.jpg" alt="orangejuiceplz" class="profile-picture">
-            <p>wip</p>
+        <section class="about-me scroll-animate">
+            <h1 class="pulse">about me</h1>
+            <div class="profile-container">
+                <img src="/images/profile-picture-alt.jpg" alt="orangejuiceplz" class="profile-picture float">
+                <div class="about-content">
+                    <p>hello! i'm orangejuiceplz, a passionate cybersecurity enthusiast, ai researcher, programmer, and game designer</p>
+                    <p>focusing mainly on offesnive cybersecurity and programming, i plan to make big changes to the tech world</p>
+                </div>
+            </div>
         </section>
 
-        <section class="my-journey">
-            <h2>the journey</h2>
+        <section class="my-journey scroll-animate">
+            <h2 class="pulse">the journey</h2>
             <ul class="timeline">
-                <li>
+                <li class="timeline-item">
                     <h3>2024</h3>
-                    <p>wip</p>
+                    <p>embarking on advanced cybersecurity projects and diving deep into ai research. collaborating with industry experts to develop cutting-edge security solutions.</p>
                 </li>
-                <li>
+                <li class="timeline-item">
                     <h3>2025</h3>
-                    <p>future plans...</p>
+                    <p>contributing to open-source ai projects, and writing some c++ programs</p>
                 </li>
             </ul>
         </section>
 
-        <section class="personal-interests">
-            <h2>personal interests</h2>
-            <ul>
-                <li>offensive cyber security</li>
-                <li>artifical intelligence training</li>
-                <li>reverse engineering</li>
+        <section class="personal-interests scroll-animate">
+            <h2 class="pulse">personal interests</h2>
+            <ul class="interests-grid">
+                <li class="interest-item">
+                    <h3>offensive cyber security</h3>
+                    <p>exploring vulnerabilities and developing ethical hacking techniques to strengthen digital defenses</p>
+                </li>
+                <li class="interest-item">
+                    <h3>artificial intelligence training</h3>
+                    <p>developing and fine-tuning ai models to solve complex problems and enhance decision-making processes</p>
+                </li>
+                <li class="interest-item">
+                    <h3>reverse engineering</h3>
+                    <p>decrypting stupidly complex systems and software to understand their inner workings and improve security measures</p>
+                </li>
             </ul>
         </section>
     </main>
-
     <%- include('../partials/footer') %>
-
     <script src="/js/main.js"></script>
+    <script src="/js/scroll-animations.js"></script>
 </body>
 </html>

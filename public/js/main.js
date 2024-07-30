@@ -27,7 +27,6 @@ function pageTransition() {
   }
   
   document.addEventListener('DOMContentLoaded', () => {
-    // Add active class to current page's navigation button
     const currentPage = window.location.pathname.split('/').pop().replace('.html', '');
     const navButtons = document.querySelectorAll('.nav-button');
     navButtons.forEach(button => {

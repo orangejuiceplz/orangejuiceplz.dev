@@ -13,7 +13,7 @@ function createStarryBackground() {
     const starCount = 200;
     let mouseX = 0;
     let mouseY = 0;
-    const movementSensitivity = 0.0005; // Adjust this value to control overall movement speed
+    const movementSensitivity = 0.001; // adjust this value to control overall movement speed
   
     for (let i = 0; i < starCount; i++) {
       stars.push({
@@ -29,11 +29,9 @@ function createStarryBackground() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
       stars.forEach(star => {
-        // Update star position based on mouse movement with reduced speed
         star.x += (mouseX - canvas.width / 2) * star.speed * movementSensitivity;
         star.y += (mouseY - canvas.height / 2) * star.speed * movementSensitivity;
   
-        // Wrap stars around the screen
         if (star.x < 0) star.x = canvas.width;
         if (star.x > canvas.width) star.x = 0;
         if (star.y < 0) star.y = canvas.height;
@@ -44,7 +42,6 @@ function createStarryBackground() {
         ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`;
         ctx.fill();
   
-        // Update opacity for twinkling effect
         star.opacity = Math.sin(Date.now() * 0.001 + star.x + star.y) * 0.5 + 0.5;
       });
   
@@ -58,7 +55,6 @@ function createStarryBackground() {
       canvas.height = window.innerHeight;
     });
   
-    // Add mouse move event listener
     document.addEventListener('mousemove', (e) => {
       mouseX = e.clientX;
       mouseY = e.clientY;

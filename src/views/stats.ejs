@@ -9,23 +9,20 @@
 </head>
 <body>
     <%- include('../partials/header') %>
-
     <main>
-        <section class="stats">
-            <h1>github stats</h1>
-            <p>heres all of my github stats, in the most unorginzed way possible </p>
-            <img src="http://github-profile-summary-cards.vercel.app/api/cards/stats?username=orangejuiceplz&theme=tokyonight" alt="GitHub Stats">
-            <img src="https://github-readme-streak-stats.herokuapp.com?user=orangejuiceplz&theme=tokyonight&hide_border=true&date_format=j%20M%5B%20Y%5D&card_width=480" alt="GitHub Streak">
-            <img src="https://github-readme-streak-stats.herokuapp.com?user=orangejuiceplz&theme=tokyonight&hide_border=true&date_format=j%20M%5B%20Y%5D&card_width=480" alt="GitHub Streak">
-            <img src="http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=orangejuiceplz&theme=tokyonight" alt="Profile Details">
-            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=orangejuiceplz&theme=tokyonight&langs_count=8" alt="Top Languages">
-            <img src="https://github-profile-trophy.vercel.app/?username=orangejuiceplz&row=1&theme=tokyonight" alt="GitHub Trophies">
+        <section class="github-stats">
+            <h1 class="neon-text">GitHub Stats</h1>
+            <p>heres all of my github stats, in the most unorganized way possible</p>
+            <div class="stats-grid">
+                <img src="http://github-profile-summary-cards.vercel.app/api/cards/stats?username=orangejuiceplz&theme=tokyonight" alt="GitHub Stats">
+                <img src="https://github-readme-streak-stats.herokuapp.com?user=orangejuiceplz&theme=tokyonight&hide_border=true&date_format=j%20M%5B%20Y%5D&card_width=480" alt="GitHub Streak">
+                <img src="http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=orangejuiceplz&theme=tokyonight" alt="Profile Details">
+                <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=orangejuiceplz&theme=tokyonight&langs_count=8" alt="Top Languages">
+                <img src="https://github-profile-trophy.vercel.app/?username=orangejuiceplz&row=1&theme=tokyonight" alt="GitHub Trophies">
+            </div>
         </section>
     </main>
-
     <%- include('../partials/footer') %>
-
     <script src="/js/main.js"></script>
 </body>
 </html>
-

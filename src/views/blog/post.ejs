@@ -1,17 +1,11 @@
-<%- include('./partials/header') %>
+<%- include('../../partials/header') %>
 <main class="container mt-4">
-  <h1>Blog Posts</h1>
-  <% if (posts && posts.length > 0) { %>
-    <% posts.forEach(post => { %>
-      <article class="blog-post-preview">
-        <h2><a href="/blog/post/<%= post._id %>"><%= post.title %></a></h2>
-        <p class="post-meta">Published on <%= post.createdAt.toLocaleDateString() %></p>
-        <p><%= post.content.substring(0, 200) %>...</p>
-        <a href="/blog/post/<%= post._id %>" class="nav-button">Read More</a>
-      </article>
-    <% }); %>
-  <% } else { %>
-    <p>No blog posts found.</p>
-  <% } %>
+  <article class="blog-post">
+    <h1><%= post.title %></h1>
+    <p class="post-meta">Published on <%= post.createdAt.toLocaleDateString() %></p>
+    <div class="post-content">
+      <%- post.content %>
+    </div>
+  </article>
 </main>
-<%- include('./partials/footer') %>
+<%- include('../../partials/footer') %>

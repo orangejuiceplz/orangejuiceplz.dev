@@ -14,8 +14,6 @@ const port = process.env.PORT || 3000;
 // MongoDB connection with retry logic
 const connectWithRetry = () => {
   mongoose.connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
     serverSelectionTimeoutMS: 30000, // Increase timeout to 30 seconds
   })
   .then(() => {
@@ -34,6 +32,7 @@ connectWithRetry();
 mongoose.connection.on('error', err => {
   console.error('MongoDB connection error:', err);
 });
+
 
 // Express configuration
 app.set('view engine', 'ejs');

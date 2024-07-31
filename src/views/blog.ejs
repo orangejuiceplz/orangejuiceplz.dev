@@ -13,11 +13,13 @@
         <section class="blog featured-work">
             <h1 class="neon-text pulse">blog</h1>
             <div class="work-grid">
-                <article class="work-item">
-                    <h2 class="neon-text">mastering C++</h2>
-                    <p class="message-content">going to integrate a content managing system</p>
-                    <a href="#" class="project-link">Read More</a>
-                </article>
+                <% posts.forEach(post => { %>
+                    <article class="work-item">
+                        <h2 class="neon-text"><%= post.title %></h2>
+                        <p class="message-content"><%= post.content.substring(0, 100) %>...</p>
+                        <a href="/blog/post/<%= post._id %>" class="project-link">Read More</a>
+                    </article>
+                <% }) %>
             </div>
         </section>
     </main>

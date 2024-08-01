@@ -12,12 +12,12 @@
     <main class="container mt-4">
         <article class="blog-post">
             <h1 class="neon-text pulse"><%= post.title %></h1>
-            <p class="blog-post-meta">Published on <%= post.createdAt.toLocaleDateString() %></p>
+            <p class="blog-post-meta">created on <%= post.createdAt.toLocaleDateString() %></p>
             <div class="blog-post-content">
                 <%- post.content %>
             </div>
         </article>
-        <a href="/blog" class="cta-button mt-4 float">Back to Blog</a>
+        <a href="/blog" class="cta-button mt-4 float">back 2 blog</a>
     </main>
     <%- include('../../partials/footer') %>
 </body>

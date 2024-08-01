@@ -10,19 +10,19 @@
 <body>
     <%- include('../../partials/header') %>
     <main class="container mt-4">
-        <h1 class="neon-text pulse">Blog Posts</h1>
+        <h1 class="neon-text pulse">blog posts</h1>
         <div class="blog-posts">
             <% if (posts && posts.length > 0) { %>
                 <% posts.forEach(post => { %>
                     <article class="blog-post-preview">
                         <h2 class="neon-text"><a href="/blog/post/<%= post._id %>"><%= post.title %></a></h2>
-                        <p class="post-meta">Published on <%= post.createdAt.toLocaleDateString() %></p>
+                        <p class="post-meta">created on <%= post.createdAt.toLocaleDateString() %></p>
                         <p><%= post.content.substring(0, 200) %>...</p>
-                        <a href="/blog/post/<%= post._id %>" class="read-more">Read More</a>
+                        <a href="/blog/post/<%= post._id %>" class="read-more">read more here</a>
                     </article>
                 <% }); %>
             <% } else { %>
-                <p class="neon-text">No blog posts found.</p>
+                <p class="neon-text">no blog posts found.</p>
             <% } %>
         </div>
     </main>

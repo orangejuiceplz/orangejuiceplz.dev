@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create New Post</title>
+    <title>draft new post</title>
     <link rel="stylesheet" href="/css/style.css">
     <script src="/js/starry-background.js"></script>
 </head>
@@ -14,14 +14,14 @@
             <h1 class="neon-text pulse"><%= post ? 'Edit Post' : 'Create New Post' %></h1>
             <form action="<%= post ? `/blog/admin/edit/${post._id}` : '/blog/admin/create' %>" method="POST">
                 <div class="form-group">
-                    <label for="title" class="neon-text">Title</label>
+                    <label for="title" class="neon-text">title</label>
                     <input type="text" id="title" name="title" required value="<%= post ? post.title : '' %>" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="content" class="neon-text">Content</label>
+                    <label for="content" class="neon-text">content</label>
                     <textarea id="content" name="content" required class="form-control"><%= post ? post.content : '' %></textarea>
                 </div>
-                <button type="submit" class="cta-button float"><%= post ? 'Update' : 'Create' %> Post</button>
+                <button type="submit" class="cta-button float"><%= post ? 'upd' : 'create' %> Post</button>
             </form>
         </div>
     </main>

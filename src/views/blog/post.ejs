@@ -1,11 +1,24 @@
-<%- include('../../partials/header') %>
-<main class="container mt-4">
-  <article class="blog-post">
-    <h1><%= post.title %></h1>
-    <p class="post-meta">Published on <%= post.createdAt.toLocaleDateString() %></p>
-    <div class="post-content">
-      <%- post.content %>
-    </div>
-  </article>
-</main>
-<%- include('../../partials/footer') %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= post.title %></title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/starry-background.js"></script>
+</head>
+<body>
+    <%- include('../../partials/header') %>
+    <main class="container mt-4">
+        <article class="blog-post">
+            <h1 class="neon-text pulse"><%= post.title %></h1>
+            <p class="blog-post-meta">Published on <%= post.createdAt.toLocaleDateString() %></p>
+            <div class="blog-post-content">
+                <%- post.content %>
+            </div>
+        </article>
+        <a href="/blog" class="cta-button mt-4 float">Back to Blog</a>
+    </main>
+    <%- include('../../partials/footer') %>
+</body>
+</html>

@@ -1,3 +1,4 @@
+<%# not really referenced anymore %> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,16 +8,16 @@
     <link rel="stylesheet" href="/css/style.css">
     <script src="/js/starry-background.js"></script>
 </head>
-<body>
+<body> 
     <%- include('../partials/header') %>
     <main>
         <section class="blog featured-work">
             <h1 class="neon-text pulse">blog</h1>
             <div class="work-grid">
-                <% posts.forEach(post => { %>
+                <% posts.forEach(post => { %>  
                     <article class="work-item">
                         <h2 class="neon-text"><%= post.title %></h2>
-                        <p class="message-content"><%= post.content.substring(0, 100) %>...</p>
+                        <p class="message-content"><%= post.content.substring(0, 100) %>...</p> 
                         <a href="/blog/post/<%= post._id %>" class="project-link">Read More</a>
                     </article>
                 <% }) %>

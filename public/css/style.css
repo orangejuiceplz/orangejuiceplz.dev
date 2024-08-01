@@ -1167,3 +1167,22 @@ footer {
   transform: translateY(-2px);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1 0 auto;
+  width: 100%;
+  max-width: 1200px; /* Adjust this value to match your desired content width */
+  margin: 0 auto;
+  padding: 5rem 2rem 2rem; /* Keep your existing padding */
+}

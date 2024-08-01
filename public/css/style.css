@@ -210,7 +210,7 @@ footer {
   margin-top: 2rem;
 }
 
-/* Animations */
+/* first anims */
 @keyframes neonFlicker {
   0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
     text-shadow: 
@@ -263,10 +263,10 @@ footer {
   }
 }
 
-/* Contact page styles */
+/* contact page styles (wip) */
 .contact-form {
   max-width: 600px;
-  margin: 0 auto 2rem; /* Added bottom margin */
+  margin: 0 auto 2rem; 
 }
 
 .form-row {
@@ -315,7 +315,7 @@ footer {
   display: flex;
   justify-content: center;
   margin-top: 1rem;
-  margin-bottom: 2rem; /* Added bottom margin */
+  margin-bottom: 2rem; 
 }
 
 .cta-button {
@@ -334,7 +334,7 @@ footer {
   padding: 1.5rem;
   border: 1px solid var(--neon-purple);
   text-align: center;
-  margin-top: 1rem; /* Added top margin */
+  margin-top: 1rem; 
 }
 
 .contact-info h2 {
@@ -445,7 +445,7 @@ footer {
   box-shadow: 0 0 15px var(--neon-purple);
 }
 
-/* Scrollbar Styles */
+/* scrollbar styles */
 #chat-messages::-webkit-scrollbar {
   width: 8px;
 }
@@ -487,7 +487,7 @@ footer {
   }
 }
 
-/* About Me Section */
+/* abt me section */
 .about-me {
   background-color: var(--secondary-bg);
   border: 2px solid var(--neon-blue);
@@ -517,6 +517,7 @@ footer {
   text-transform: lowercase;
   letter-spacing: 3px;
   text-shadow: 0 0 10px var(--neon-purple);
+  animation: neonFlicker 1.5s infinite alternate;
 }
 
 .profile-container {
@@ -527,13 +528,13 @@ footer {
 
 .profile-picture {
   width: 200px;
-  height: 200px; /* Added to maintain aspect ratio if image doesn't load */
+  height: 200px; /* maintain aspect ratio if image doesn't load */
   border-radius: 50%;
   border: 2px solid var(--neon-blue);
   box-shadow: 0 0 15px var(--neon-blue);
   position: relative;
-  object-fit: cover; /* This ensures the image covers the area without stretching */
-  background-color: #333; /* This will show if the image doesn't load */
+  object-fit: cover; /* this ensures the image covers the area without stretching */
+  background-color: #333; /*  this will show if the image doesn't load */
 }
 
 .profile-picture::before {
@@ -558,7 +559,7 @@ footer {
   margin-bottom: 1rem;
 }
 
-/* My Journey Section */
+/* journey section */
 .my-journey {
   background-color: var(--secondary-bg);
   border: 2px solid var(--neon-blue);
@@ -619,7 +620,7 @@ footer {
   margin-bottom: 0.5rem;
 }
 
-/* Personal Interests Section */
+/*  onterests section */
 .personal-interests {
   background-color: var(--secondary-bg);
   border: 2px solid var(--neon-blue);
@@ -667,7 +668,7 @@ footer {
   text-shadow: 0 0 5px var(--neon-purple);
 }
 
-/* Animations */
+/* animations */
 @keyframes scanline {
   0% {
     transform: translateX(-100%);
@@ -697,7 +698,7 @@ footer {
   }
 }
 
-/* Existing animations */
+/*  more animations */
 .pulse {
   animation: neonPulse 2s infinite;
 }
@@ -743,7 +744,7 @@ footer {
   }
 }
 
-/* Footer Styles */
+/* footer styles */
 footer {
   background-color: var(--secondary-bg);
   color: var(--text-color);
@@ -979,7 +980,7 @@ footer {
   }
 }
 
-/* Blog Section Styles */
+/* blog section styles */
 .blog-posts {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -1035,7 +1036,7 @@ footer {
   text-shadow: 0 0 5px var(--neon-blue);
 }
 
-/* Single Blog Post Page */
+/* single blog post page */
 .blog-post {
   background-color: var(--secondary-bg);
   border: 2px solid var(--neon-blue);
@@ -1065,7 +1066,7 @@ footer {
   line-height: 1.6;
 }
 
-/* Admin Dashboard Styles */
+/* admin dashboard styles */
 .admin-dashboard {
   background-color: var(--secondary-bg);
   border: 2px solid var(--neon-blue);
@@ -1082,6 +1083,7 @@ footer {
   text-transform: lowercase;
   letter-spacing: 2px;
   text-shadow: 0 0 8px var(--neon-purple);
+  animation: neonFlicker 1.5s infinite alternate;
 }
 
 .admin-table {
@@ -1111,7 +1113,7 @@ footer {
   box-shadow: 0 5px 15px rgba(102, 217, 239, 0.2);
 }
 
-/* Admin Create/Edit Post Form Styles */
+/* admin styles */
 .post-form {
   background-color: var(--secondary-bg);
   border: 2px solid var(--neon-blue);
@@ -1182,9 +1184,9 @@ body {
 main {
   flex: 1 0 auto;
   width: 100%;
-  max-width: 1200px; /* Adjust this value to match your desired content width */
+  max-width: 1200px; 
   margin: 0 auto;
-  padding: 5rem 2rem 2rem; /* Keep your existing padding */
+  padding: 5rem 2rem 2rem; 
 }
 
 /* scrolling */

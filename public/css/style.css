@@ -1186,3 +1186,16 @@ main {
   margin: 0 auto;
   padding: 5rem 2rem 2rem; /* Keep your existing padding */
 }
+
+/* scrolling */
+
+.scroll-animation {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease-out;
+}
+
+.scroll-animation.scrolled {
+  opacity: 1;
+  transform: translateY(0);
+}

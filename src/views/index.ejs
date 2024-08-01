@@ -29,13 +29,15 @@
         </section>
         <section class="latest-blog-posts">
             <h2>latest from the blog</h2>
-            <!-- blog previewing (need to add) -->
-            <article class="blog-preview">
-                <h3>mastering c++ - a journey</h3>
-                <p>explore the hell i've gotten myself into</p>
-                <a href="/blog" class="read-more">read more</a>
-            </article>
-            <!-- add more.. -->
+            <% if (latestPost) { %>
+              <article class="blog-preview">
+                <h3><%= latestPost.title %></h3>
+                <p><%= latestPost.content.substring(0, 100) %>...</p>
+                <a href="/blog/post/<%= latestPost._id %>" class="read-more">read more</a>
+              </article>
+            <% } else { %>
+              <p>No blog posts available at the moment.</p>
+            <% } %>
         </section>
         <section class="call-to-action">
             <h2>collaborations?</h2>

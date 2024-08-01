@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const blogRoutes = require('./routes/blog');
+const Post = require('./models/Post');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -32,7 +33,6 @@ connectWithRetry();
 mongoose.connection.on('error', err => {
   console.error('MongoDB connection error:', err);
 });
-
 
 // Express configuration
 app.set('view engine', 'ejs');
@@ -82,8 +82,14 @@ client.on("warn", console.warn);
 client.login(process.env.DISCORD_BOT_TOKEN);
 
 // Routes
-app.get('/', (req, res) => {
-  res.render('index', { title: 'Home' });
+app.get('/', async (req, res) => {
+  try {
+    const latestPost = await Post.findOne().sort({ createdAt: -1 }).limit(1);
+    res.render('index', { title: 'Home', latestPost });
+  } catch (error) {
+    console.error('Error fetching latest post:', error);
+    res.render('index', { title: 'Home', latestPost: null });
+  }
 });
 
 app.get('/about', (req, res) => {

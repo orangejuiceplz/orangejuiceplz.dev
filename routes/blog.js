@@ -13,19 +13,19 @@ router.get('/', async (req, res) => {
     }
   });
   
-  // Single post
-  router.get('/post/:id', async (req, res) => {
-    try {
-      const post = await Post.findById(req.params.id);
-      if (!post) {
-        return res.status(404).render('error', { title: 'Error', message: 'Post not found' });
-      }
-      res.render('blog/post', { title: post.title, post });
-    } catch (error) {
-      console.error('Error fetching post:', error);
-      res.status(500).render('error', { title: 'Error', message: 'Error fetching post' });
+// Single post
+router.get('/post/:id', async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id);
+    if (!post) {
+      return res.status(404).render('error', { title: 'Error', message: 'Post not found' });
     }
-  });
+    res.render('blog/post', { title: post.title, post });
+  } catch (error) {
+    console.error('Error fetching post:', error);
+    res.status(500).render('error', { title: 'Error', message: 'Error fetching post' });
+  }
+});
 
 // Admin dashboard
 router.get('/admin', async (req, res) => {

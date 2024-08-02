@@ -72,3 +72,60 @@
       grid-template-columns: 1fr;
     }
   }
+
+  /* even more anims */
+@keyframes neonFlicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+      text-shadow: 
+        0 0 5px var(--neon-blue),
+        0 0 10px var(--neon-blue),
+        0 0 15px var(--neon-blue),
+        0 0 20px var(--neon-blue);
+    }
+    20%, 24%, 55% {
+      text-shadow: none;
+    }
+  }
+  
+  @keyframes glitch {
+    0% {
+      transform: translate(0);
+    }
+    20% {
+      transform: translate(-5px, 5px);
+    }
+    40% {
+      transform: translate(-5px, -5px);
+    }
+    60% {
+      transform: translate(5px, 5px);
+    }
+    80% {
+      transform: translate(5px, -5px);
+    }
+    100% {
+      transform: translate(0);
+    }
+  }
+    
+  @keyframes backgroundScroll {
+    0% {
+      background-position: 0 0, 30px 30px;
+    }
+    100% {
+      background-position: 60px 60px, 90px 90px;
+    }
+  }
+
+  .scroll-animation {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease-out;
+  }
+  
+  .scroll-animation.scrolled {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  

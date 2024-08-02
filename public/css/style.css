@@ -1,3 +1,5 @@
+@import url("animations.css");
+
 :root {
   --bg-color: #1a1b26;
   --text-color: #a9b1d6;
@@ -35,6 +37,8 @@ body::before {
   opacity: 0.05;
 }
 
+
+/* header */
 header {
   background-color: rgba(36, 40, 59, 0.8);
   backdrop-filter: blur(10px);
@@ -50,6 +54,8 @@ header.scrolled {
   padding: 0.3rem 0; 
 }
 
+
+/* nav buttons (top) */
 nav ul {
   list-style-type: none;
   padding: 0;
@@ -210,59 +216,6 @@ footer {
   margin-top: 2rem;
 }
 
-/* first anims */
-@keyframes neonFlicker {
-  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-    text-shadow: 
-      0 0 5px var(--neon-blue),
-      0 0 10px var(--neon-blue),
-      0 0 15px var(--neon-blue),
-      0 0 20px var(--neon-blue);
-  }
-  20%, 24%, 55% {
-    text-shadow: none;
-  }
-}
-
-@keyframes glitch {
-  0% {
-    transform: translate(0);
-  }
-  20% {
-    transform: translate(-5px, 5px);
-  }
-  40% {
-    transform: translate(-5px, -5px);
-  }
-  60% {
-    transform: translate(5px, 5px);
-  }
-  80% {
-    transform: translate(5px, -5px);
-  }
-  100% {
-    transform: translate(0);
-  }
-}
-
-@keyframes scanline {
-  0% {
-    transform: translateY(-100%);
-  }
-  100% {
-    transform: translateY(100%);
-  }
-}
-
-@keyframes backgroundScroll {
-  0% {
-    background-position: 0 0, 30px 30px;
-  }
-  100% {
-    background-position: 60px 60px, 90px 90px;
-  }
-}
-
 /* footer styles */
 footer {
   background-color: var(--secondary-bg);
@@ -391,17 +344,4 @@ main {
   max-width: 1200px; 
   margin: 0 auto;
   padding: 5rem 2rem 2rem; 
-}
-
-/* scrolling */
-
-.scroll-animation {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.5s ease-out;
-}
-
-.scroll-animation.scrolled {
-  opacity: 1;
-  transform: translateY(0);
 }

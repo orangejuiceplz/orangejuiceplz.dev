@@ -1,0 +1,74 @@
+  /* animations */
+  @keyframes scanline {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+  @keyframes pulseOutline {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 0.5;
+    }
+    50% {
+      transform: scale(1.05);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes pulseTimeline {
+    0%, 100% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+  
+  /*  more animations */
+  .pulse {
+    animation: neonPulse 2s infinite;
+  }
+  
+  .float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  @keyframes neonPulse {
+    0%, 100% {
+      text-shadow: 0 0 10px var(--neon-purple), 0 0 20px var(--neon-purple), 0 0 30px var(--neon-purple);
+    }
+    50% {
+      text-shadow: 0 0 20px var(--neon-purple), 0 0 30px var(--neon-purple), 0 0 40px var(--neon-purple);
+    }
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+  
+ @media (max-width: 768px) {
+    .profile-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .profile-picture {
+      margin-bottom: 1rem;
+    }
+  
+    .interests-grid {
+      grid-template-columns: 1fr;
+    }
+  }

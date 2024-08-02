@@ -112,6 +112,10 @@ app.get('/discord', (req, res) => {
   res.render('discord', { title: 'Discord' });
 });
 
+app.get('/404', (req, res) => {
+  res.status(404).render('404');
+});
+
 // Blog routes
 app.use('/blog', blogRoutes);
 

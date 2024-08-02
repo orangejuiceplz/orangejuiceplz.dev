@@ -1,0 +1,60 @@
+/* github stat page styles */
+.github-stats {
+    background-color: var(--secondary-bg);
+    border: 2px solid var(--neon-blue);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(102, 217, 239, 0.3);
+  }
+  
+  .github-stats::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(to right, var(--neon-blue), var(--neon-purple));
+    animation: scanline 2s linear infinite;
+  }
+  
+  .github-stats h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-transform: lowercase;
+    letter-spacing: 3px;
+  }
+  
+  .github-stats p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+  }
+  
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  
+  .stats-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid var(--neon-purple);
+    transition: all 0.3s ease;
+  }
+  
+  .stats-grid img:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(189, 147, 249, 0.3);
+  }
+  
+  @media (max-width: 768px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+  }

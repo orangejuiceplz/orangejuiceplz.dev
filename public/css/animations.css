@@ -168,7 +168,6 @@
       clip: rect(130px, 9999px, 25px, 0);
       transform: skew(0.73deg);
     }
-    /* ... continue with more keyframes ... */
     100% {
       clip: rect(82px, 9999px, 64px, 0);
       transform: skew(0.89deg);

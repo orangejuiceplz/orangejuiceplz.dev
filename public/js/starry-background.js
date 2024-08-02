@@ -15,11 +15,11 @@ function createStarryBackground() {
     let targetX = 0;
     let targetY = 0;
 
-    // Adjustable parameters
+    // adj parameters
     const params = {
-        starSpeed: 0.01,           // Adjust this to change overall star speed
-        shootingStarSpeed: 0.05,   // Adjust this to change shooting star speed
-        movementSmoothing: 0.05,   // Adjust this to change how quickly stars react to mouse movement
+        starSpeed: 0.01,           // adj this to change overall star speed
+        shootingStarSpeed: 0.05,   // adj this to change shooting star speed
+        movementSmoothing: 0.05,   // adj this to change how quickly stars react to mouse movement
     };
 
     function resizeCanvas() {
@@ -60,7 +60,7 @@ function createStarryBackground() {
         ctx.fillStyle = 'rgba(22,22,36,0.2)';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        // Smooth mouse movement
+        // smooth mouse movement
         targetX += (mouseX - targetX) * params.movementSmoothing;
         targetY += (mouseY - targetY) * params.movementSmoothing;
 
@@ -83,7 +83,7 @@ function createStarryBackground() {
             ctx.fill();
         });
 
-        // Occasionally create a new shooting star
+        // occasionally create a new shooting star
         if (shootingStars.length < maxShootingStars && Math.random() < 0.005) {
             shootingStars.push(createShootingStar());
         }

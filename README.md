@@ -1,3 +1,3 @@
 my new, better, website
 
-licensed maybe under the gpl
+licensed under the MIT license

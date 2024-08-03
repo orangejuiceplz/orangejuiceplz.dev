@@ -25,7 +25,7 @@ function createStarryBackground() {
     function resizeCanvas() {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
-        ctx.fillStyle = 'black';
+        ctx.fillStyle = 'rgb(22,22,36)';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         initStars();
     }
@@ -52,12 +52,17 @@ function createStarryBackground() {
             length: Math.random() * 80 + 10,
             speed: Math.random() * 5 + 2,
             opacity: 1,
-            trail: []
+            trail: [],
+            trailLifetime: 1000 // Trail will last for 1 second
         };
     }
 
     function animateStars(timestamp) {
-        ctx.fillStyle = 'rgba(22,22,36,0.2)';
+        // Clear the entire canvas
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        // Redraw the background
+        ctx.fillStyle = 'rgb(22,22,36)';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
         // smooth mouse movement
@@ -95,15 +100,22 @@ function createStarryBackground() {
             star.x += dx;
             star.y += dy + star.speed;
             
-            star.trail.unshift({ x: star.x, y: star.y, opacity: star.opacity });
-            if (star.trail.length > 20) star.trail.pop();
-
+            const currentTime = timestamp;
+            star.trail.unshift({ x: star.x, y: star.y, opacity: star.opacity, time: currentTime });
+            
             ctx.beginPath();
             ctx.moveTo(star.x, star.y);
-            star.trail.forEach((point, i) => {
-                ctx.lineTo(point.x, point.y);
-                point.opacity -= 0.05;
+            star.trail = star.trail.filter((point, i) => {
+                const age = currentTime - point.time;
+                if (age < star.trailLifetime) {
+                    const lifeProgress = age / star.trailLifetime;
+                    point.opacity = star.opacity * (1 - lifeProgress);
+                    ctx.lineTo(point.x, point.y);
+                    return true;
+                }
+                return false;
             });
+
             ctx.strokeStyle = `rgba(255, 255, 255, ${star.opacity})`;
             ctx.stroke();
 

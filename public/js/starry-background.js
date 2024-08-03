@@ -17,9 +17,11 @@ function createStarryBackground() {
 
     // adj parameters
     const params = {
-        starSpeed: 0.01,           // adj this to change overall star speed
-        shootingStarSpeed: 0.05,   // adj this to change shooting star speed
-        movementSmoothing: 0.05,   // adj this to change how quickly stars react to mouse movement
+        starSpeed: 0.01,
+        shootingStarSpeed: 0.05,
+        movementSmoothing: 0.05,
+        maxShootingStars: 10,          // max number of shooting stars on screen
+        shootingStarProbability: 0.005 // prob of creating a new shooting star each frame
     };
 
     function resizeCanvas() {
@@ -89,7 +91,7 @@ function createStarryBackground() {
         });
 
         // occasionally create a new shooting star
-        if (shootingStars.length < maxShootingStars && Math.random() < 0.005) {
+        if (shootingStars.length < params.maxShootingStars && Math.random() < params.shootingStarProbability) {
             shootingStars.push(createShootingStar());
         }
 

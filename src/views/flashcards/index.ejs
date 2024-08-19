@@ -1,20 +1,47 @@
-<%- include('../partials/header') %>
-<h1>My Flashcards</h1>
-<a href="/flashcards/create">Create New Flashcard</a>
-<% if (flashcards.length > 0) { %>
-  <ul>
-    <% flashcards.forEach(flashcard => { %>
-      <li>
-        <%= flashcard.front %> - <%= flashcard.back %>
-        <a href="/flashcards/edit/<%= flashcard._id %>">Edit</a>
-        <form action="/flashcards/delete/<%= flashcard._id %>" method="POST" style="display:inline;">
-          <button type="submit">Delete</button>
-        </form>
-      </li>
-    <% }) %>
-  </ul>
-<% } else { %>
-  <p>No flashcards yet. Create your first one!</p>
-<% } %>
-<a href="/flashcards/study">Study Flashcards</a>
-<%- include('../partials/footer') %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Flashcards | orangejuiceplz</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/flashcards.css">
+    <link rel="stylesheet" href="/css/animations.css">
+    <script src="/js/starry-background.js"></script>
+</head>
+<body>
+    <%- include('../../partials/header') %>
+    <main>
+        <section class="flashcards-section scroll-animate">
+            <h1 class="pulse">My Flashcards</h1>
+            <a href="/flashcards/create" class="create-button">Create New Flashcard</a>
+            
+            <% if (flashcards.length > 0) { %>
+                <ul class="flashcards-list">
+                    <% flashcards.forEach(flashcard => { %>
+                        <li class="flashcard-item">
+                            <div class="flashcard-content">
+                                <span class="flashcard-front"><%= flashcard.front %></span>
+                                <span class="flashcard-back"><%= flashcard.back %></span>
+                            </div>
+                            <div class="flashcard-actions">
+                                <a href="/flashcards/edit/<%= flashcard._id %>" class="edit-button">Edit</a>
+                                <form action="/flashcards/delete/<%= flashcard._id %>" method="POST">
+                                    <button type="submit" class="delete-button">Delete</button>
+                                </form>
+                            </div>
+                        </li>
+                    <% }) %>
+                </ul>
+            <% } else { %>
+                <p class="no-flashcards">No flashcards yet. Create your first one!</p>
+            <% } %>
+            
+            <a href="/flashcards/study" class="study-button">Study Flashcards</a>
+        </section>
+    </main>
+    <%- include('../../partials/footer') %>
+    <script src="/js/main.js"></script>
+    <script src="/js/scroll-animations.js"></script>
+</body>
+</html>

@@ -45,4 +45,4 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       flashcardContainer.innerHTML = '<p>No flashcards available. Create some first!</p>';
     }
-  });
+});

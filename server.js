@@ -6,8 +6,13 @@ const { Client, GatewayIntentBits } = require("discord.js");
 const mongoose = require('mongoose');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const blogRoutes = require('./routes/blog');
+const authRoutes = require('./routes/auth');
 const Post = require('./models/Post');
+const User = require('./models/User');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -61,6 +66,62 @@ app.use(session({
   }
 }));
 
+// Passport configuration
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(new LocalStrategy(
+  async (username, password, done) => {
+    try {
+      const user = await User.findOne({ username });
+      if (!user) return done(null, false, { message: 'Incorrect username.' });
+      const isMatch = await user.comparePassword(password);
+      if (!isMatch) return done(null, false, { message: 'Incorrect password.' });
+      return done(null, user);
+    } catch (error) {
+      return done(error);
+    }
+  }
+));
+
+passport.use(new GoogleStrategy({
+  clientID: process.env.GOOGLE_CLIENT_ID,
+  clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+  callbackURL: "http://localhost:3000/auth/google/callback"
+},
+async (accessToken, refreshToken, profile, done) => {
+  try {
+    let user = await User.findOne({ googleId: profile.id });
+    if (!user) {
+      user = new User({
+        username: profile.displayName,
+        email: profile.emails[0].value,
+        googleId: profile.id
+      });
+      await user.save();
+    }
+    return done(null, user);
+  } catch (error) {
+    return done(error);
+  }
+}
+));
+
+passport.serializeUser((user, done) => {
+done(null, user.id);
+});
+
+passport.deserializeUser(async (id, done) => {
+try {
+  const user = await User.findById(id);
+  done(null, user);
+} catch (error) {
+  done(error);
+}
+});
+
+
+
 // Discord bot setup
 const client = new Client({
   intents: [
@@ -80,6 +141,12 @@ client.on("error", console.error);
 client.on("warn", console.warn);
 
 client.login(process.env.DISCORD_BOT_TOKEN);
+
+// "Middleware" to pass user to all views
+app.use((req, res, next) => {
+  res.locals.user = req.user;
+  next();
+});
 
 // Routes
 app.get('/', async (req, res) => {
@@ -116,8 +183,31 @@ app.get('/404', (req, res) => {
   res.status(404).render('404');
 });
 
+app.get('/login', (req, res) => {
+  res.render('auth/login', { title: 'Login' });
+});
+
+app.get('/register', (req, res) => {
+  res.render('auth/register', { title: 'Register' });
+});
+
 // Blog routes
 app.use('/blog', blogRoutes);
+
+app.use('/auth', authRoutes);
+
+// "Middleware" to protect routes
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect('/login');
+}
+
+// Example from documentation of a protected route
+app.get('/profile', ensureAuthenticated, (req, res) => {
+  res.render('profile', { title: 'Profile', user: req.user });
+});
 
 // Discord API routes
 app.post("/api/send-message", (req, res) => {

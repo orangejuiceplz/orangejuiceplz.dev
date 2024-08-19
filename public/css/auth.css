@@ -47,3 +47,22 @@
 .auth-links a:hover {
     text-decoration: underline;
 }
+
+.google-signin {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.google-button {
+    display: inline-block;
+    background-color: #4285F4;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.google-button:hover {
+    background-color: #357ae8;
+}

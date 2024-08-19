@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile | orangejuiceplz</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/profile.css">
+    <link rel="stylesheet" href="/css/animations.css">
+    <script src="/js/starry-background.js"></script>
+</head>
+<body>
+    <%- include('../partials/header') %>
+    <main>
+        <section class="profile scroll-animate">
+            <h1 class="pulse">user profile</h1>
+            <div class="profile-container">
+                <img src="/images/default-profile.jpg" alt="<%= user.username %>" class="profile-picture float">
+                <div class="profile-content">
+                    <h2><%= user.username %></h2>
+                    <p>Email: <%= user.email %></p>
+                    <p>Account created: <%= user.createdAt.toLocaleDateString() %></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="profile-update scroll-animate">
+            <h2 class="pulse">update profile</h2>
+            <form class="profile-form" action="/profile" method="POST">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" value="<%= user.username %>" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" value="<%= user.email %>" required>
+                </div>
+                <button type="submit" class="cta-button">Update Profile</button>
+            </form>
+        </section>
+    </main>
+    <%- include('../partials/footer') %>
+    <script src="/js/main.js"></script>
+    <script src="/js/scroll-animations.js"></script>
+</body>
+</html>

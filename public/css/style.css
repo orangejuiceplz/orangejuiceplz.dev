@@ -422,3 +422,148 @@ main {
   color: var(--neon-purple);
   text-shadow: 0 0 5px var(--neon-purple), 0 0 15px var(--neon-purple);
 }
+
+/* Auth Forms (Login and Register) */
+.auth-container {
+  max-width: 400px;
+  margin: 2rem auto;
+  background-color: var(--secondary-bg);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(102, 217, 239, 0.3);
+  animation: glitch 5s infinite;
+}
+
+.auth-container h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--neon-purple);
+  text-shadow: 0 0 10px var(--neon-purple);
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  background-color: var(--bg-color);
+  border: 1px solid var(--neon-blue);
+  color: var(--text-color);
+  border-radius: 4px;
+}
+
+.auth-form input:focus {
+  outline: none;
+  box-shadow: 0 0 5px var(--neon-blue);
+}
+
+.auth-form button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--accent-color);
+  color: var(--bg-color);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.auth-form button:hover {
+  background-color: var(--heading-color);
+  box-shadow: 0 0 15px var(--neon-purple);
+}
+
+.auth-links {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.auth-links a {
+  color: var(--neon-blue);
+  text-decoration: none;
+}
+
+.auth-links a:hover {
+  text-decoration: underline;
+}
+
+/* Profile Page */
+.profile-container {
+  background-color: var(--secondary-bg);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(102, 217, 239, 0.3);
+  animation: glitch 5s infinite;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.profile-picture {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid var(--neon-blue);
+  margin-right: 1rem;
+  box-shadow: 0 0 10px var(--neon-blue);
+}
+
+.profile-name {
+  font-size: 1.5rem;
+  color: var(--neon-purple);
+  text-shadow: 0 0 10px var(--neon-purple);
+}
+
+.profile-info {
+  margin-bottom: 2rem;
+}
+
+.profile-info h3 {
+  color: var(--neon-blue);
+  margin-bottom: 0.5rem;
+}
+
+.profile-form input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  background-color: var(--bg-color);
+  border: 1px solid var(--neon-blue);
+  color: var(--text-color);
+  border-radius: 4px;
+}
+
+.profile-form input:focus {
+  outline: none;
+  box-shadow: 0 0 5px var(--neon-blue);
+}
+
+.profile-form button {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--accent-color);
+  color: var(--bg-color);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.profile-form button:hover {
+  background-color: var(--heading-color);
+  box-shadow: 0 0 15px var(--neon-purple);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .profile-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .profile-picture {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+}

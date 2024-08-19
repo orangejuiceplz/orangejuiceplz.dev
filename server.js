@@ -191,10 +191,31 @@ app.get('/register', (req, res) => {
   res.render('auth/register', { title: 'Register' });
 });
 
+app.get('/profile', ensureAuthenticated, (req, res) => {
+  res.render('profile', { title: 'User Profile', user: req.user });
+});
+
 // Blog routes
 app.use('/blog', blogRoutes);
 
 app.use('/auth', authRoutes);
+
+app.post('/profile', ensureAuthenticated, async (req, res) => {
+  try {
+    const { username, email } = req.body;
+    const user = req.user;
+    
+    user.username = username;
+    user.email = email;
+    
+    await user.save();
+    
+    res.redirect('/profile');
+  } catch (error) {
+    console.error('Error updating profile:', error);
+    res.render('profile', { title: 'User Profile', user: req.user, error: 'Failed to update profile' });
+  }
+});
 
 // "Middleware" to protect routes
 function ensureAuthenticated(req, res, next) {

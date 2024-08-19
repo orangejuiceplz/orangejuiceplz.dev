@@ -1,0 +1,15 @@
+<%- include('../partials/header') %>
+<h1>Study Flashcards</h1>
+<div id="flashcard-container">
+  <!-- Flashcards will be displayed here -->
+</div>
+<button id="prev-btn">Previous</button>
+<button id="flip-btn">Flip</button>
+<button id="next-btn">Next</button>
+
+<script>
+  // Pass the flashcards data to the client-side JavaScript
+  window.flashcardsData = <%- JSON.stringify(flashcards) %>;
+</script>
+<script src="/js/flashcards.js"></script>
+<%- include('../partials/footer') %>

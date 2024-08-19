@@ -1,0 +1,18 @@
+<%- include('../partials/header') %>
+<h1>Edit Flashcard</h1>
+<form action="/flashcards/edit/<%= flashcard._id %>" method="POST">
+  <div>
+    <label for="front">Front:</label>
+    <input type="text" id="front" name="front" value="<%= flashcard.front %>" required>
+  </div>
+  <div>
+    <label for="back">Back:</label>
+    <input type="text" id="back" name="back" value="<%= flashcard.back %>" required>
+  </div>
+  <div>
+    <label for="category">Category:</label>
+    <input type="text" id="category" name="category" value="<%= flashcard.category %>">
+  </div>
+  <button type="submit">Update Flashcard</button>
+</form>
+<%- include('../partials/footer') %>

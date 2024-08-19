@@ -1,0 +1,18 @@
+<%- include('../partials/header') %>
+<h1>Create New Flashcard</h1>
+<form action="/flashcards/create" method="POST">
+  <div>
+    <label for="front">Front:</label>
+    <input type="text" id="front" name="front" required>
+  </div>
+  <div>
+    <label for="back">Back:</label>
+    <input type="text" id="back" name="back" required>
+  </div>
+  <div>
+    <label for="category">Category:</label>
+    <input type="text" id="category" name="category">
+  </div>
+  <button type="submit">Create Flashcard</button>
+</form>
+<%- include('../partials/footer') %>

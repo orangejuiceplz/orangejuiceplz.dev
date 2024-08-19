@@ -148,6 +148,8 @@ app.use((req, res, next) => {
   next();
 });
 
+const flashcardRoutes = require('./routes/flashcards');
+
 // Routes
 app.get('/', async (req, res) => {
   try {
@@ -229,6 +231,8 @@ function ensureAuthenticated(req, res, next) {
 app.get('/profile', ensureAuthenticated, (req, res) => {
   res.render('profile', { title: 'Profile', user: req.user });
 });
+
+app.use('/flashcards', flashcardRoutes);
 
 // Discord API routes
 app.post("/api/send-message", (req, res) => {

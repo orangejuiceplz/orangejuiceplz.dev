@@ -1,175 +1,159 @@
-  /* animations */
-  @keyframes scanline {
-    0% {
-      transform: translateX(-100%);
-    }
-    100% {
-      transform: translateX(100%);
-    }
+/* animations */
+@keyframes scanline {
+  0% {
+    transform: translateX(-100%);
   }
-  
-  @keyframes pulseOutline {
-    0%, 100% {
-      transform: scale(1);
-      opacity: 0.5;
-    }
-    50% {
-      transform: scale(1.05);
-      opacity: 1;
-    }
+  100% {
+    transform: translateX(100%);
   }
-  
-  @keyframes pulseTimeline {
-    0%, 100% {
-      opacity: 0.5;
-    }
-    50% {
-      opacity: 1;
-    }
-  }
-  
-  /*  more animations */
-  .pulse {
-    animation: neonPulse 2s infinite;
-  }
-  
-  .float {
-    animation: float 3s ease-in-out infinite;
-  }
-  
-  @keyframes neonPulse {
-    0%, 100% {
-      text-shadow: 0 0 10px var(--neon-purple), 0 0 20px var(--neon-purple), 0 0 30px var(--neon-purple);
-    }
-    50% {
-      text-shadow: 0 0 20px var(--neon-purple), 0 0 30px var(--neon-purple), 0 0 40px var(--neon-purple);
-    }
-  }
-  
-  @keyframes float {
-    0% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
-    100% {
-      transform: translateY(0px);
-    }
-  }
-  
- @media (max-width: 768px) {
-    .profile-container {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .profile-picture {
-      margin-bottom: 1rem;
-    }
-  
-    .interests-grid {
-      grid-template-columns: 1fr;
-    }
-  }
+}
 
-  /* even more anims */
-@keyframes neonFlicker {
-    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-      text-shadow: 
-        0 0 5px var(--neon-blue),
-        0 0 10px var(--neon-blue),
-        0 0 15px var(--neon-blue),
-        0 0 20px var(--neon-blue);
-    }
-    20%, 24%, 55% {
-      text-shadow: none;
-    }
+@keyframes pulseOutline {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.5;
   }
-  
-  @keyframes glitch {
-    0% {
-      transform: translate(0);
-    }
-    20% {
-      transform: translate(-5px, 5px);
-    }
-    40% {
-      transform: translate(-5px, -5px);
-    }
-    60% {
-      transform: translate(5px, 5px);
-    }
-    80% {
-      transform: translate(5px, -5px);
-    }
-    100% {
-      transform: translate(0);
-    }
-  }
-    
-  @keyframes backgroundScroll {
-    0% {
-      background-position: 0 0, 30px 30px;
-    }
-    100% {
-      background-position: 60px 60px, 90px 90px;
-    }
-  }
-
-  .scroll-animation {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.5s ease-out;
-  }
-  
-  .scroll-animation.scrolled {
+  50% {
+    transform: scale(1.05);
     opacity: 1;
-    transform: translateY(0);
   }
+}
+
+@keyframes pulseTimeline {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.pulse {
+  animation: neonPulse 2s infinite;
+}
+
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes neonPulse {
+  0%, 100% {
+    text-shadow: 0 0 10px var(--neon-purple), 0 0 20px var(--neon-purple), 0 0 30px var(--neon-purple);
+  }
+  50% {
+    text-shadow: 0 0 20px var(--neon-purple), 0 0 30px var(--neon-purple), 0 0 40px var(--neon-purple);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes neonFlicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    text-shadow: 
+      0 0 5px var(--neon-blue),
+      0 0 10px var(--neon-blue),
+      0 0 15px var(--neon-blue),
+      0 0 20px var(--neon-blue);
+  }
+  20%, 24%, 55% {
+    text-shadow: none;
+  }
+}
+
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-5px, 5px);
+  }
+  40% {
+    transform: translate(-5px, -5px);
+  }
+  60% {
+    transform: translate(5px, 5px);
+  }
+  80% {
+    transform: translate(5px, -5px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+@keyframes backgroundScroll {
+  0% {
+    background-position: 0 0, 30px 30px;
+  }
+  100% {
+    background-position: 60px 60px, 90px 90px;
+  }
+}
+
+.scroll-animation {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease-out;
+}
+
+.scroll-animation.scrolled {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 @keyframes errorGlitch {
-    0% { transform: translate(0); }
-    20% { transform: translate(-5px, 5px); }
-    40% { transform: translate(-5px, -5px); }
-    60% { transform: translate(5px, 5px); }
-    80% { transform: translate(5px, -5px); }
-    100% { transform: translate(0); }
-  }
+  0% { transform: translate(0); }
+  20% { transform: translate(-5px, 5px); }
+  40% { transform: translate(-5px, -5px); }
+  60% { transform: translate(5px, 5px); }
+  80% { transform: translate(5px, -5px); }
+  100% { transform: translate(0); }
+}
 
 @keyframes glitch-anim {
-    0% {
-      clip: rect(10px, 9999px, 31px, 0);
-      transform: skew(0.56deg);
-    }
-    5% {
-      clip: rect(70px, 9999px, 71px, 0);
-      transform: skew(0.93deg);
-    }
-    10% {
-      clip: rect(6px, 9999px, 98px, 0);
-      transform: skew(0.03deg);
-    }
-    100% {
-      clip: rect(59px, 9999px, 98px, 0);
-      transform: skew(0.1deg);
-    }
+  0% {
+    clip: rect(10px, 9999px, 31px, 0);
+    transform: skew(0.56deg);
   }
-  
-  @keyframes glitch-anim2 {
-    0% {
-      clip: rect(65px, 9999px, 119px, 0);
-      transform: skew(0.03deg);
-    }
-    5% {
-      clip: rect(93px, 9999px, 53px, 0);
-      transform: skew(0.32deg);
-    }
-    10% {
-      clip: rect(130px, 9999px, 25px, 0);
-      transform: skew(0.73deg);
-    }
-    100% {
-      clip: rect(82px, 9999px, 64px, 0);
-      transform: skew(0.89deg);
-    }
+  5% {
+    clip: rect(70px, 9999px, 71px, 0);
+    transform: skew(0.93deg);
   }
+  10% {
+    clip: rect(6px, 9999px, 98px, 0);
+    transform: skew(0.03deg);
+  }
+  100% {
+    clip: rect(59px, 9999px, 98px, 0);
+    transform: skew(0.1deg);
+  }
+}
+
+@keyframes glitch-anim2 {
+  0% {
+    clip: rect(65px, 9999px, 119px, 0);
+    transform: skew(0.03deg);
+  }
+  5% {
+    clip: rect(93px, 9999px, 53px, 0);
+    transform: skew(0.32deg);
+  }
+  10% {
+    clip: rect(130px, 9999px, 25px, 0);
+    transform: skew(0.73deg);
+  }
+  100% {
+    clip: rect(82px, 9999px, 64px, 0);
+    transform: skew(0.89deg);
+  }
+}

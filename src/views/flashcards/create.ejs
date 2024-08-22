@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Flashcard | orangejuiceplz</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/flashcards.css">
+  <link rel="stylesheet" href="/css/animations.css">
+  <script src="/js/starry-background.js"></script>
+</head>
+<body>
+  <%- include('../../partials/header') %>
+  <main>
+    <section class="create-flashcard scroll-animate">
+      <h1 class="pulse">Create New Flashcard</h1>
+      <form action="/flashcards/create" method="POST" class="flashcard-form">
+        <div class="form-group">
+          <label for="front">Front:</label>
+          <input type="text" id="front" name="front" required>
+        </div>
+        <div class="form-group">
+          <label for="back">Back:</label>
+          <input type="text" id="back" name="back" required>
+        </div>
+        <div class="form-group">
+          <label for="category">Category:</label>
+          <input type="text" id="category" name="category">
+        </div>
+        <button type="submit" class="cta-button">Create Flashcard</button>
+      </form>
+    </section>
+  </main>
+  <%- include('../../partials/footer') %>
+  <script src="/js/main.js"></script>
+  <script src="/js/scroll-animations.js"></script>
+</body>
+</html>

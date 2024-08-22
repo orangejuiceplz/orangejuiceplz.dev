@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Flashcards | orangejuiceplz</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/flashcards.css">
+  <link rel="stylesheet" href="/css/animations.css">
+  <script src="/js/starry-background.js"></script>
+</head>
+<body>
+  <%- include('../../partials/header') %>
+  <main>
+    <section class="flashcards-section scroll-animate">
+      <h1 class="pulse">My Flashcards</h1>
+      <a href="/flashcards/create" class="cta-button">Create New Flashcard</a>
+
+      <% if (flashcards.length > 0) { %>
+        <div class="work-grid">
+          <% flashcards.forEach(flashcard => { %>
+            <div class="work-item">
+              <div class="flashcard">
+                <div class="flashcard-content">
+                  <span class="flashcard-front"><%= flashcard.front %></span>
+                  <span class="flashcard-back"><%= flashcard.back %></span>
+                </div>
+              </div>
+              <div class="flashcard-actions">
+                <a href="/flashcards/edit/<%= flashcard._id %>" class="project-link">Edit</a>
+                <form action="/flashcards/delete/<%= flashcard._id %>" method="POST">
+                  <button type="submit" class="delete-button">Delete</button>
+                </form>
+              </div>
+            </div>
+          <% }) %>
+        </div>
+      <% } else { %>
+        <p class="no-flashcards">No flashcards yet. Create your first one!</p>
+      <% } %>
+
+      <a href="/flashcards/study" class="cta-button">Study Flashcards</a>
+    </section>
+  </main>
+  <%- include('../../partials/footer') %>
+  <script src="/js/main.js"></script>
+  <script src="/js/scroll-animations.js"></script>
+</body>
+</html>
